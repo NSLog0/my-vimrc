@@ -39,6 +39,7 @@ map <leader>q :q<CR>
 map <leader>a :Ag<CR>
 map <leader>g :GFiles?<CR> 
 map <leader>e "*y
+map <leader>sr :source ~/.vimrc
 inoremap jj <Esc>
 noremap <S-w> <C-w>
 nnoremap <CR> i<CR><Esc>
@@ -67,6 +68,7 @@ set ruler " display status line/colmun number at buttom
 set number " display line number
 set hls
 set mouse=a
+set wildmenu
 syntax on
 set termguicolors
 " colorscheme material
@@ -101,8 +103,10 @@ let g:ackprg = 'ag --vimgrep'
 " let g:ale_linters = { 'javascript': ['eslint'] }
 let g:ale_fixers = {
 \  'javascript': ['prettier', 'eslint'],
+\  'python': ['autopep8', 'pylint'],
 \  'ruby': ['rubocop'],
-\  'python': ['autopep8', 'pylint']
+\  'scss': ['prettier'],
+\  'sass': ['prettier']
 \}
 
 let g:ale_sign_error = '@e'
