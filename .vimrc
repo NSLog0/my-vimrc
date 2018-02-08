@@ -39,7 +39,7 @@ map <leader>q :q<CR>
 map <leader>a :Ag<CR>
 map <leader>g :GFiles?<CR> 
 map <leader>e "*y
-map <leader>sr :source ~/.vimrc
+map <leader>sr :source ~/.vimrc<CR>
 inoremap jj <Esc>
 noremap <S-w> <C-w>
 nnoremap <CR> i<CR><Esc>
