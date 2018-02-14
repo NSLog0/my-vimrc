@@ -84,7 +84,6 @@ colorscheme breezy
 " colorscheme archery
 " ------------------------------------------------------------
 
-
 " plugin setting
 " -------------------------------- airline setting ---------------------------------------
 " let g:airline_theme='archery'
@@ -98,7 +97,6 @@ if !exists('g:airline_symbols')
 endif
 let g:airline_symbols.space = "\ua0"
 " ---------------------------------------------------------------------------------------
-
 
 " -------------- ag function setting for fzf ---------------
 " let g:ackprg = 'ag --nogroup --nocolor --column'
@@ -131,8 +129,6 @@ let g:indentLine_conceallevel = 2
 let g:indentLine_enabled = 1
 " -------------------------------------------------------------
 let g:move_key_modifier = 'C'
-
-
 
 " --------------------------git gutter -----------------------
 let g:gitgutter_sign_modified_removed = emoji#for('scream')
