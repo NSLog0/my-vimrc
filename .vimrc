@@ -28,6 +28,8 @@ Plug 'epilande/vim-react-snippets'
 Plug 'epilande/vim-es2015-snippets'
 Plug 'tpope/vim-fugitive'
 Plug 'Badacadabra/vim-archery'
+Plug 'fneu/breezy'
+Plug 'junegunn/vim-emoji'
 call plug#end()
 
 " ------------------- key map setting -------------------------
@@ -73,16 +75,18 @@ syntax on
 set termguicolors
 " colorscheme material
 " colorscheme minimal
-" set background=light
+set background=light
 " colorscheme simplifysimplify-light
 " colorscheme rupza
-colorscheme archery
+colorscheme breezy
+" colorscheme archery
 " ------------------------------------------------------------
 
 
 " plugin setting
 " -------------------------------- airline setting ---------------------------------------
-let g:airline_theme='archery'
+" let g:airline_theme='archery'
+let g:airline_theme='breezy'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
@@ -109,8 +113,9 @@ let g:ale_fixers = {
 \  'sass': ['prettier']
 \}
 
-let g:ale_sign_error = '@e'
-let g:ale_sign_warning = '@w'
+let g:ale_sign_error = emoji#for('poop')
+let g:ale_sign_warning = emoji#for('bulb')
+
 let g:ale_fix_on_save = 1
 " let g:ale_javascript_prettier_use_local_config = 1
 let g:ale_set_highlights = 0
@@ -124,3 +129,9 @@ let g:indentLine_conceallevel = 2
 let g:indentLine_enabled = 1
 " -------------------------------------------------------------
 let g:move_key_modifier = 'C'
+
+
+
+" --------------------------git gutter -----------------------
+let g:gitgutter_sign_modified_removed = emoji#for('scream')
+" -------------------------------------------------------------
