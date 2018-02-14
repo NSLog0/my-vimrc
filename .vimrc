@@ -30,6 +30,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'Badacadabra/vim-archery'
 Plug 'fneu/breezy'
 Plug 'junegunn/vim-emoji'
+Plug 'tonsky/FiraCode'
 call plug#end()
 
 " ------------------- key map setting -------------------------
@@ -72,6 +73,7 @@ set hls
 set mouse=a
 set wildmenu
 syntax on
+set guifont=Fira\ Code:h12
 set termguicolors
 " colorscheme material
 " colorscheme minimal
