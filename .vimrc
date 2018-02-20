@@ -128,7 +128,6 @@ let g:ale_sign_error = emoji#for('poop')
 let g:ale_sign_warning = emoji#for('bulb')
 
 let g:ale_fix_on_save = 1
-" let g:ale_javascript_prettier_use_local_config = 1
 let g:ale_set_highlights = 0
 
 let g:RefreshRunningBrowserDefault = 'chrome'
