@@ -31,6 +31,8 @@ Plug 'Badacadabra/vim-archery'
 Plug 'fneu/breezy'
 Plug 'junegunn/vim-emoji'
 Plug 'tonsky/FiraCode'
+Plug 'janko-m/vim-test'
+Plug 'junegunn/vim-easy-align'
 call plug#end()
 
 " ------------------- key map setting -------------------------
@@ -54,6 +56,12 @@ noremap <silent><leader>r :RRB<CR>
 " fugit
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gd :Gdiff<CR>
+
+" vim-test 
+nmap <leader>ttn :TestNearest<CR>
+nmap <leader>ttf :TestFile<CR>
+nmap <leader>tts :TestSuite<CR>
+
 " -------------------------------------------------------------
 
 " ---------------- setup vim startup defautl -----------------
@@ -84,6 +92,7 @@ colorscheme breezy
 " colorscheme archery
 " ------------------------------------------------------------
 
+
 " plugin setting
 " -------------------------------- airline setting ---------------------------------------
 " let g:airline_theme='archery'
@@ -98,6 +107,7 @@ endif
 let g:airline_symbols.space = "\ua0"
 " ---------------------------------------------------------------------------------------
 
+
 " -------------- ag function setting for fzf ---------------
 " let g:ackprg = 'ag --nogroup --nocolor --column'
 let g:ackprg = 'ag --vimgrep'
@@ -105,13 +115,14 @@ let g:ackprg = 'ag --vimgrep'
 
 " ---------------------- ale syntax setting ---------------------------------
 " let g:ale_linters = { 'javascript': ['eslint'] }
+
 let g:ale_fixers = {
 \  'javascript': ['prettier', 'eslint'],
 \  'python': ['autopep8', 'pylint'],
-\  'ruby': ['rubocop'],
 \  'scss': ['prettier'],
 \  'sass': ['prettier']
 \}
+" \  'ruby': ['rubocop'],
 
 let g:ale_sign_error = emoji#for('poop')
 let g:ale_sign_warning = emoji#for('bulb')
@@ -127,9 +138,11 @@ let g:RefreshRunningBrowserDefault = 'chrome'
 let g:indentLine_concealcursor = 'inc'
 let g:indentLine_conceallevel = 2
 let g:indentLine_enabled = 1
+let g:indentLine_char = '.'
 " -------------------------------------------------------------
 let g:move_key_modifier = 'C'
 
 " --------------------------git gutter -----------------------
 let g:gitgutter_sign_modified_removed = emoji#for('scream')
+let g:gitgutter_highlight_lines = 1
 " -------------------------------------------------------------
