@@ -37,12 +37,11 @@ call plug#end()
 
 " ------------------- key map setting -------------------------
 map <C-n> :NERDTreeToggle<CR>
-map <leader>f :FZF<CR>
+noremap <leader>fb :FZF<CR>
 noremap <leader>/ :Commentary<CR>
 map <leader>w :w<CR>
 map <leader>q :q<CR>
 map <leader>a :Ag<CR>
-map <leader>g :GFiles?<CR> 
 map <leader>e "*y
 map <leader>sr :source ~/.vimrc<CR>
 inoremap jj <Esc>
@@ -61,6 +60,9 @@ nnoremap <leader>gd :Gdiff<CR>
 nmap <leader>ttn :TestNearest<CR>
 nmap <leader>ttf :TestFile<CR>
 nmap <leader>tts :TestSuite<CR>
+
+" ale
+nnoremap <leader>fix :ALEFix<CR>
 
 " -------------------------------------------------------------
 
@@ -120,14 +122,14 @@ let g:ale_fixers = {
 \  'javascript': ['prettier', 'eslint'],
 \  'python': ['autopep8', 'pylint'],
 \  'scss': ['prettier'],
-\  'sass': ['prettier']
+\  'sass': ['prettier'],
+\  'ruby': ['rubocop'],
 \}
-" \  'ruby': ['rubocop'],
 
 let g:ale_sign_error = emoji#for('poop')
 let g:ale_sign_warning = emoji#for('bulb')
 
-let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 0
 let g:ale_set_highlights = 0
 
 let g:RefreshRunningBrowserDefault = 'chrome'
