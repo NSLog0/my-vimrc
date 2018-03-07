@@ -68,8 +68,6 @@ nnoremap <leader>fix :ALEFix<CR>
 
 " ---------------- setup vim startup defautl -----------------
 
-" set term=builtin_ansi       
-" set termguicolors
 set encoding=utf-8 " file encode
 set laststatus=2
 set tabstop=2 " change tab width
@@ -85,12 +83,10 @@ set wildmenu
 syntax on
 set guifont=Fira\ Code:h12
 set termguicolors
-" colorscheme material
-" colorscheme minimal
 set background=light
+colorscheme breezy
 " colorscheme simplifysimplify-light
 " colorscheme rupza
-colorscheme breezy
 " colorscheme archery
 " ------------------------------------------------------------
 
@@ -117,7 +113,6 @@ let g:ackprg = 'ag --vimgrep'
 
 " ---------------------- ale syntax setting ---------------------------------
 " let g:ale_linters = { 'javascript': ['eslint'] }
-
 let g:ale_fixers = {
 \  'javascript': ['prettier', 'eslint'],
 \  'python': ['autopep8', 'pylint'],
@@ -128,10 +123,8 @@ let g:ale_fixers = {
 
 let g:ale_sign_error = emoji#for('poop')
 let g:ale_sign_warning = emoji#for('bulb')
-
 let g:ale_fix_on_save = 0
 let g:ale_set_highlights = 0
-
 let g:RefreshRunningBrowserDefault = 'chrome'
 " -------------------------------------------------------------------------
 
