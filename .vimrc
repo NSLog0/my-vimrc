@@ -67,7 +67,6 @@ nnoremap <leader>fix :ALEFix<CR>
 " -------------------------------------------------------------
 
 " ---------------- setup vim startup defautl -----------------
-
 set encoding=utf-8 " file encode
 set laststatus=2
 set tabstop=2 " change tab width
