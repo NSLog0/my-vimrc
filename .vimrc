@@ -64,6 +64,9 @@ nmap <leader>tts :TestSuite<CR>
 " ale
 nnoremap <leader>fix :ALEFix<CR>
 
+
+" ctag 
+:nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
 " -------------------------------------------------------------
 
 " ---------------- setup vim startup defautl -----------------
