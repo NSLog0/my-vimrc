@@ -33,6 +33,7 @@ Plug 'junegunn/vim-emoji'
 Plug 'tonsky/FiraCode'
 Plug 'janko-m/vim-test'
 Plug 'junegunn/vim-easy-align'
+Plug 'tyrannicaltoucan/vim-quantum'
 call plug#end()
 
 " ------------------- key map setting -------------------------
@@ -64,7 +65,6 @@ nmap <leader>tts :TestSuite<CR>
 " ale
 nnoremap <leader>fix :ALEFix<CR>
 
-
 " ctag 
 :nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
 " -------------------------------------------------------------
@@ -86,7 +86,9 @@ syntax on
 set guifont=Fira\ Code:h12
 set termguicolors
 set background=light
-colorscheme breezy
+colorscheme quantum
+" colorscheme despacio
+" colorscheme breezy
 " colorscheme simplifysimplify-light
 " colorscheme rupza
 " colorscheme archery
@@ -95,8 +97,7 @@ colorscheme breezy
 
 " plugin setting
 " -------------------------------- airline setting ---------------------------------------
-" let g:airline_theme='archery'
-let g:airline_theme='breezy'
+let g:airline_theme='quantum'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
@@ -140,5 +141,5 @@ let g:move_key_modifier = 'C'
 
 " --------------------------git gutter -----------------------
 let g:gitgutter_sign_modified_removed = emoji#for('scream')
-let g:gitgutter_highlight_lines = 1
+" let g:gitgutter_highlight_lines = 0
 " -------------------------------------------------------------
