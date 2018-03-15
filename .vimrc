@@ -37,7 +37,7 @@ call plug#end()
 
 " ------------------- key map setting -------------------------
 map <C-n> :NERDTreeToggle<CR>
-noremap <leader>fb :FZF<CR>
+noremap <leader>ff :FZF<CR>
 noremap <leader>/ :Commentary<CR>
 map <leader>w :w<CR>
 map <leader>q :q<CR>
