@@ -52,6 +52,7 @@ nnoremap <Space> i<Space><Esc>
 nnoremap 9 <s-$>
 vnoremap 9 <s-$>
 noremap <silent><leader>r :RRB<CR>
+nnoremap Q <Nop>
 
 " fugit
 nnoremap <leader>gs :Gstatus<CR>
