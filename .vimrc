@@ -38,21 +38,23 @@ call plug#end()
 
 " ------------------- key map setting -------------------------
 map <C-n> :NERDTreeToggle<CR>
-noremap <leader>ff :FZF<CR>
-noremap <leader>/ :Commentary<CR>
 map <leader>w :w<CR>
 map <leader>q :q<CR>
 map <leader>a :Ag<CR>
 map <leader>e "*y
 map <leader>sr :source ~/.vimrc<CR>
 inoremap jj <Esc>
+noremap <leader>/ :Commentary<CR>
+noremap <leader>ff :FZF<CR>
 noremap <S-w> <C-w>
 nnoremap <CR> i<CR><Esc>
 nnoremap <Space> i<Space><Esc>
-nnoremap 9 <s-$>
-vnoremap 9 <s-$>
 noremap <silent><leader>r :RRB<CR>
 nnoremap Q <Nop>
+nnoremap L <s-$>
+vnoremap L <s-$>
+nnoremap H <s-^>
+vnoremap H <s-^>
 
 " fugit
 nnoremap <leader>gs :Gstatus<CR>
