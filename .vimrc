@@ -59,6 +59,7 @@ vnoremap H <s-^>
 " fugit
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gd :Gdiff<CR>
+nnoremap <leader>gb :Gblame<CR>
 
 " vim-test 
 nmap <leader>ttn :TestNearest<CR>
