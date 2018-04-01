@@ -44,11 +44,11 @@ map <leader>a :Ag<CR>
 map <leader>e "*y
 
 if has("unix")
-    if system("uname -s") == "Linux" 
-         map <leader> e "+y
-    else
-         map <leader> e "*y
-    endif
+  if system("uname -s") == "Linux" 
+    map <leader> e "+y
+  else
+    map <leader> e "*y
+  endif
 endif
 
 map <leader>sr :source ~/.vimrc<CR>
@@ -130,12 +130,12 @@ let g:ackprg = 'ag --vimgrep'
 " ---------------------- ale syntax setting ---------------------------------
 " let g:ale_linters = { 'javascript': ['eslint'] }
 let g:ale_fixers = {
-\  'javascript': ['prettier', 'eslint'],
-\  'python': ['autopep8', 'pylint'],
-\  'scss': ['prettier'],
-\  'sass': ['prettier'],
-\  'ruby': ['rubocop'],
-\}
+      \  'javascript': ['prettier', 'eslint'],
+      \  'python': ['autopep8', 'pylint'],
+      \  'scss': ['prettier'],
+      \  'sass': ['prettier'],
+      \  'ruby': ['rubocop'],
+      \}
 
 let g:ale_sign_error = emoji#for('poop')
 let g:ale_sign_warning = emoji#for('bulb')
