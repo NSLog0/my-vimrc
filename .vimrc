@@ -41,7 +41,6 @@ map <C-n> :NERDTreeToggle<CR>
 map <leader>w :w<CR>
 map <leader>q :q<CR>
 map <leader>a :Ag<CR>
-map <leader>e "*y
 
 if has("unix")
   if system("uname -s") =~ "Linux" 
