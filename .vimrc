@@ -95,6 +95,7 @@ set number " display line number
 set hls
 set mouse=a
 set wildmenu
+set tags=tags
 syntax on
 set guifont=Fira\ Code:h12
 set termguicolors
