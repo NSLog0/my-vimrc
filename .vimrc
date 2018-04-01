@@ -44,7 +44,7 @@ map <leader>a :Ag<CR>
 map <leader>e "*y
 
 if has("unix")
-  if system("uname -s") == "Linux" 
+  if system("uname -s") =~ "Linux" 
     map <leader> e "+y
   else
     map <leader> e "*y
