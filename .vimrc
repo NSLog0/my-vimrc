@@ -42,6 +42,15 @@ map <leader>w :w<CR>
 map <leader>q :q<CR>
 map <leader>a :Ag<CR>
 map <leader>e "*y
+
+if has("unix")
+    if system("uname -s") == "Linux" 
+         map <leader> e "+y
+    else
+         map <leader> e "*y
+    endif
+endif
+
 map <leader>sr :source ~/.vimrc<CR>
 inoremap jj <Esc>
 noremap <leader>/ :Commentary<CR>
