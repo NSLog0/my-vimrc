@@ -6,8 +6,8 @@ Plug 'isruslan/vim-es6'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'scrooloose/nerdtree'
-Plug 'altercation/vim-colors-solarized'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'altercation/vim-colors-solarized'
 Plug 'airblade/vim-gitgutter'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -20,12 +20,7 @@ Plug 'mkitt/browser-refresh.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'ap/vim-css-color'
 Plug 'matze/vim-move'
-Plug 'jscappini/material.vim'
-Plug 'wolverian/minimal'
 Plug 'nightsense/simplifysimplify'
-Plug 'SirVer/ultisnips'
-Plug 'epilande/vim-react-snippets'
-Plug 'epilande/vim-es2015-snippets'
 Plug 'tpope/vim-fugitive'
 Plug 'Badacadabra/vim-archery'
 Plug 'fneu/breezy'
@@ -36,7 +31,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'tyrannicaltoucan/vim-quantum'
 call plug#end()
 
-" ------------------- key map setting -------------------------
+" ------------- key map setting ------------------- 
 map <C-n> :NERDTreeToggle<CR>
 map <leader>w :w<CR>
 map <leader>q :q<CR>
@@ -78,10 +73,10 @@ nmap <leader>tts :TestSuite<CR>
 nnoremap <leader>fix :ALEFix<CR>
 
 " ctag 
-:nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
-" -------------------------------------------------------------
+nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
+" ----------------------------------------------------
 
-" ---------------- setup vim startup defautl -----------------
+" ---------- setup vim startup defautl ---------------
 set encoding=utf-8 " file encode
 set laststatus=2
 set tabstop=2 " change tab width
@@ -95,21 +90,21 @@ set hls
 set mouse=a
 set wildmenu
 set tags=tags
-syntax on
 set guifont=Fira\ Code:h12
 set termguicolors
 set background=light
+syntax on
 colorscheme quantum
-" colorscheme despacio
-" colorscheme breezy
-" colorscheme simplifysimplify-light
-" colorscheme rupza
-" colorscheme archery
-" ------------------------------------------------------------
+
+set noswapfile
+" set backupdir=~/.vim/backup/
+" set directory=~/.vim/swap/
+" set undodir=~/.vim/undo/
+" --------------------------------------------------
 
 
 " plugin setting
-" -------------------------------- airline setting ---------------------------------------
+" -------------- airline setting -------------------
 let g:airline_theme='quantum'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
@@ -119,17 +114,16 @@ if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
 let g:airline_symbols.space = "\ua0"
-" ---------------------------------------------------------------------------------------
+" --------------------------------------------------
 
 
-" -------------- ag function setting for fzf ---------------
-" let g:ackprg = 'ag --nogroup --nocolor --column'
+" -------- ag function setting for fzf -------------
 let g:ackprg = 'ag --vimgrep'
-" ---------------------------------------------------------
+" install --> https://github.com/ggreer/the_silver_searcher
+" --------------------------------------------------
 
-" ---------------------- ale syntax setting ---------------------------------
-" let g:ale_linters = { 'javascript': ['eslint'] }
-let g:ale_fixers = {
+" ----------- ale syntax setting -------------------
+le t g:ale_fixers = {
       \  'javascript': ['prettier', 'eslint'],
       \  'python': ['autopep8', 'pylint'],
       \  'scss': ['prettier'],
@@ -141,18 +135,23 @@ let g:ale_sign_error = emoji#for('poop')
 let g:ale_sign_warning = emoji#for('bulb')
 let g:ale_fix_on_save = 0
 let g:ale_set_highlights = 0
-let g:RefreshRunningBrowserDefault = 'chrome'
-" -------------------------------------------------------------------------
+" -------------------------------------------------
 
-" ----------------- indent plugin setting ----------------------
+" ------------ refresh browser --------------------
+let g:RefreshRunningBrowserDefault = 'chrome'
+" -------------------------------------------------
+
+" ----------- indent plugin setting ---------------
 let g:indentLine_concealcursor = 'inc'
 let g:indentLine_conceallevel = 2
 let g:indentLine_enabled = 1
 let g:indentLine_char = '┆'
-" -------------------------------------------------------------
+" -------------------------------------------------
+
+" ----------------- vim move ----------------------
 let g:move_key_modifier = 'C'
 
-" --------------------------git gutter -----------------------
+" ---------------- git gutter ---------------------
 let g:gitgutter_sign_modified_removed = emoji#for('scream')
-" let g:gitgutter_highlight_lines = 0
-" -------------------------------------------------------------
+let g:gitgutter_highlight_lines = 0
+" -------------------------------------------------
