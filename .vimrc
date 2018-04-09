@@ -115,7 +115,7 @@ let g:ackprg = 'ag --vimgrep'
 " --------------------------------------------------
 
 " ----------- ale syntax setting -------------------
-le t g:ale_fixers = {
+let g:ale_fixers = {
       \  'javascript': ['prettier', 'eslint'],
       \  'python': ['autopep8', 'pylint'],
       \  'scss': ['prettier'],
