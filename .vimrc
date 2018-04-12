@@ -29,18 +29,20 @@ Plug 'tonsky/FiraCode'
 Plug 'janko-m/vim-test'
 Plug 'junegunn/vim-easy-align'
 Plug 'tyrannicaltoucan/vim-quantum'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 call plug#end()
 
 " ------------- key map setting ------------------- 
-map <C-n> :NERDTreeToggle<CR>
-map <leader>w :w<CR>
+nnoremap <leader>' :NERDTreeToggle<CR>
+nnoremap <leader>w :w<CR> 
 map <leader>q :q<CR>
 map <leader>a :Ag<CR>
 map <leader>e "+y
-map <leader>sr :source ~/.vimrc<CR>
+nnoremap <leader>sr :source ~/.vimrc<CR>
 inoremap jj <Esc>
 noremap <leader>/ :Commentary<CR>
-noremap <leader>ff :FZF<CR>
+noremap <leader>f :FZF<CR>
 noremap <S-w> <C-w>
 nnoremap <CR> i<CR><Esc>
 nnoremap <Space> i<Space><Esc>
@@ -69,6 +71,10 @@ nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
 " ----------------------------------------------------
 
 " ---------- setup vim startup defautl ---------------
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
 set encoding=utf-8 " file encode
 set laststatus=2
 set tabstop=2 " change tab width
@@ -85,10 +91,9 @@ set tags=tags
 set guifont=Fira\ Code:h12
 set termguicolors
 set background=light
-syntax on
-colorscheme quantum
-
 set noswapfile
+colorscheme quantum
+syntax on
 " set backupdir=~/.vim/backup/
 " set directory=~/.vim/swap/
 " set undodir=~/.vim/undo/
@@ -122,7 +127,6 @@ let g:ale_fixers = {
       \  'sass': ['prettier'],
       \  'ruby': ['rubocop'],
       \}
-
 let g:ale_sign_error = emoji#for('poop')
 let g:ale_sign_warning = emoji#for('bulb')
 let g:ale_fix_on_save = 0
@@ -147,3 +151,12 @@ let g:move_key_modifier = 'C'
 let g:gitgutter_sign_modified_removed = emoji#for('scream')
 let g:gitgutter_highlight_lines = 0
 " -------------------------------------------------
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsEditSplit="vertical"
+
+
+" ---------------- NERDTree ---------------------
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+let NERDTreeAutoDeleteBuffer = 1
