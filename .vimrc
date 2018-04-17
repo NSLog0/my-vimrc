@@ -34,7 +34,7 @@ Plug 'honza/vim-snippets'
 call plug#end()
 
 " ------------- key map setting ------------------- 
-nnoremap <leader>' :NERDTreeToggle<CR>
+nnoremap <leader>d :NERDTreeToggle<CR>
 nnoremap <leader>w :w<CR> 
 map <leader>q :q<CR>
 map <leader>a :Ag<CR>
@@ -42,7 +42,7 @@ map <leader>e "+y
 nnoremap <leader>sr :source ~/.vimrc<CR>
 inoremap jj <Esc>
 noremap <leader>/ :Commentary<CR>
-noremap <leader>f :FZF<CR>
+noremap <leader>find :FZF<CR>
 noremap <S-w> <C-w>
 nnoremap <CR> i<CR><Esc>
 nnoremap <Space> i<Space><Esc>
@@ -73,7 +73,6 @@ nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
 " ---------- setup vim startup defautl ---------------
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 set encoding=utf-8 " file encode
 set laststatus=2
