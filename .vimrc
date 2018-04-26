@@ -79,22 +79,22 @@ nmap ga <Plug>(EasyAlign)
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
-set encoding    = utf-8 " file encode
-set laststatus  = 2
-set tabstop     = 2 " change tab width
-set shiftwidth  = 2 " affects what happens when you press >>, << or =
-set softtabstop = 2 " tell backspace gose back step or tab width
+set encoding=utf-8 " file encode
+set laststatus=2
+set tabstop=2 " change tab width
+set shiftwidth=2 " affects what happens when you press >>, << or =
+set softtabstop=2 " tell backspace gose back step or tab width
 set expandtab " convert tab to space
-set backspace   = indent,eol,start " fix backspace notworking
+set backspace=indent,eol,start " fix backspace notworking
 set ruler " display status line/colmun number at buttom
 set number " display line number
 set hls
-set mouse       = a
+set mouse=a
 set wildmenu
-set tags        = tags
-set guifont     = Fira\ Code:h12
+set tags=tags
+set guifont=Fira\ Code:h12
 set termguicolors
-set background  = light
+set background=light
 set noswapfile
 colorscheme quantum
 syntax on
