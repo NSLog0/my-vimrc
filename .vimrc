@@ -78,6 +78,7 @@ nmap ga <Plug>(EasyAlign)
 " ---------- setup vim startup defautl ---------------
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+autocmd BufWritePre *.rb :%s/\s\+$//e
 
 set encoding=utf-8 " file encode
 set laststatus=2
