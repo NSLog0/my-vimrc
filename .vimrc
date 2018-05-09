@@ -132,10 +132,12 @@ let g:ale_fixers = {
       \  'sass': ['prettier'],
       \  'ruby': ['rubocop'],
       \}
+
 let g:ale_sign_error     = emoji#for('poop')
 let g:ale_sign_warning   = emoji#for('bulb')
 let g:ale_fix_on_save    = 0
-let g:ale_set_highlights = 0
+let g:ale_set_highlights = 1
+let g:ale_completion_enabled = 1
 " -------------------------------------------------
 
 " ------------ refresh browser --------------------
