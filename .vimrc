@@ -155,7 +155,6 @@ let g:indentLine_char          = '┆'
 let g:move_key_modifier = 'C'
 
 " ---------------- git gutter ---------------------
-let g:gitgutter_sign_modified_removed = emoji#for('scream')
 let g:gitgutter_highlight_lines       = 0
 " -------------------------------------------------
 
