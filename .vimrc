@@ -38,7 +38,7 @@ nnoremap <leader>d :NERDTreeToggle<CR>
 nnoremap <leader>w :w<CR>
 map      <leader>q :q<CR>
 map      <leader>a :Ag<CR>
-map      <leader>e "+y
+vmap      <leader>e "+y
 nnoremap <leader>sr :source ~/.vimrc<CR>
 inoremap jj <Esc>
 noremap  <leader>/ :Commentary<CR>
