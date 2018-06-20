@@ -52,6 +52,8 @@ nnoremap L <s-$>
 vnoremap L <s-$>
 nnoremap H <s-^>
 vnoremap H <s-^>
+nnoremap <leader>o o<Esc>
+vnoremap <leader>o o<Esc>
 
 " fugit
 nnoremap <leader>gs :Gstatus<CR>
