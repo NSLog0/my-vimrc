@@ -99,13 +99,14 @@ set guifont=Fira\ Code:h12
 set termguicolors
 set background=light
 set noswapfile
+set ttyfast
+set lazyredraw
 colorscheme quantum
 syntax on
 " set backupdir=~/.vim/backup/
 " set directory=~/.vim/swap/
 " set undodir=~/.vim/undo/
 " --------------------------------------------------
-
 
 " plugin setting
 " -------------- airline setting -------------------
@@ -123,6 +124,10 @@ let g:airline_symbols.space                   = "\ua0"
 
 " -------- ag function setting for fzf -------------
 let g:ackprg = 'ag --vimgrep'
+let g:fzf_action = {
+  \ 't': 'tab split',
+  \ 'x': 'split',
+  \ 'v': 'vsplit' }
 " install --> https://github.com/ggreer/the_silver_searcher
 " --------------------------------------------------
 
