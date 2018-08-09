@@ -31,6 +31,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'mattn/emmet-vim'
 call plug#end()
 
 " ------------- key map setting ------------------- 
@@ -49,6 +50,8 @@ nnoremap <Space> i<Space><Esc>
 noremap  <silent><leader>r :RRB<CR>
 nnoremap Q <Nop>
 nnoremap L <s-$>
+inoremap <silent> <c-h> <esc>I
+inoremap <silent> <c-l> <esc>A
 vnoremap L <s-$>
 nnoremap H <s-^>
 vnoremap H <s-^>
@@ -81,6 +84,7 @@ nmap ga <Plug>(EasyAlign)
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 autocmd BufWritePre *.rb :%s/\s\+$//e
+autocmd BufWritePre *.py :%s/\s\+$//e
 
 set encoding=utf-8 " file encode
 set laststatus=2
@@ -101,6 +105,7 @@ set background=light
 set noswapfile
 set ttyfast
 set lazyredraw
+" set relativenumber
 colorscheme quantum
 syntax on
 " set backupdir=~/.vim/backup/
@@ -124,27 +129,29 @@ let g:airline_symbols.space                   = "\ua0"
 
 " -------- ag function setting for fzf -------------
 let g:ackprg = 'ag --vimgrep'
-let g:fzf_action = {
-  \ 't': 'tab split',
-  \ 'x': 'split',
-  \ 'v': 'vsplit' }
 " install --> https://github.com/ggreer/the_silver_searcher
 " --------------------------------------------------
 
 " ----------- ale syntax setting -------------------
 let g:ale_fixers = {
       \  'javascript': ['prettier', 'eslint'],
-      \  'python': ['autopep8', 'pylint'],
+      \  'python': ['autopep8'],
       \  'scss': ['prettier'],
-      \  'sass': ['prettier'],
       \  'ruby': ['rubocop'],
+      \  'php': ['php_cs_fixer'],
       \}
+
+let g:ale_linters = {
+\   'scss': ['scss-lint'],
+\   'sass': ['scss-lint'],
+\}
+
+let g:ale_php_phpcs_use_global = 1
 
 let g:ale_sign_error     = emoji#for('poop')
 let g:ale_sign_warning   = emoji#for('bulb')
 let g:ale_fix_on_save    = 0
 let g:ale_set_highlights = 1
-let g:ale_completion_enabled = 1
 " -------------------------------------------------
 
 " ------------ refresh browser --------------------
@@ -173,3 +180,48 @@ let g:UltiSnipsEditSplit     = "vertical"
 let NERDTreeMinimalUI        = 1
 let NERDTreeDirArrows        = 1
 let NERDTreeAutoDeleteBuffer = 1
+
+let ruby_no_expensive = 1
+
+let g:SuperTabDefaultCompletionType    = '<C-n>'
+let g:SuperTabCrMapping                = 0
+let g:UltiSnipsExpandTrigger           = '<tab>'
+let g:UltiSnipsJumpForwardTrigger      = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger     = '<s-tab>'
+
+
+" Google python style guide
+setlocal indentexpr=GetGooglePythonIndent(v:lnum)
+
+let s:maxoff = 50 " maximum number of lines to look backwards.
+
+function GetGooglePythonIndent(lnum)
+
+  " Indent inside parens.
+  " Align with the open paren unless it is at the end of the line.
+  " E.g.
+  "   open_paren_not_at_EOL(100,
+  "                         (200,
+  "                          300),
+  "                         400)
+  "   open_paren_at_EOL(
+  "       100, 200, 300, 400)
+  call cursor(a:lnum, 1)
+  let [par_line, par_col] = searchpairpos('(\|{\|\[', '', ')\|}\|\]', 'bW',
+        \ "line('.') < " . (a:lnum - s:maxoff) . " ? dummy :"
+        \ . " synIDattr(synID(line('.'), col('.'), 1), 'name')"
+        \ . " =~ '\\(Comment\\|String\\)$'")
+  if par_line > 0
+    call cursor(par_line, 1)
+    if par_col != col("$") - 1
+      return par_col
+    endif
+  endif
+
+  " Delegate the rest to the original function.
+  return GetPythonIndent(a:lnum)
+
+endfunction
+
+let pyindent_nested_paren="&sw*2"
+let pyindent_open_paren="&sw*2"
