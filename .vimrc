@@ -1,4 +1,4 @@
- call plug#begin()
+call plug#begin()
 Plug 'pangloss/vim-javascript'
 Plug 'vim-ruby/vim-ruby'
 Plug 'mxw/vim-jsx'
@@ -32,7 +32,6 @@ Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'mattn/emmet-vim'
-Plug 'skywind3000/asyncrun.vim'
 call plug#end()
 
 " ------------- key map setting ------------------- 
@@ -40,7 +39,7 @@ nnoremap <leader>d :NERDTreeToggle<CR>
 nnoremap <leader>w :w<CR>
 map      <leader>q :q<CR>
 map      <leader>a :Ag<CR>
-vmap      <leader>e "+y
+vmap     <leader>e "+y
 nnoremap <leader>sr :source ~/.vimrc<CR>
 inoremap jj <Esc>
 noremap  <leader>/ :Commentary<CR>
@@ -59,6 +58,9 @@ vnoremap H <s-^>
 nnoremap <leader>o o<Esc>
 nnoremap <leader>tab <c-w><s-t>
 vnoremap <leader>o o<Esc>
+
+" emmet
+imap <silent> <c-@> <c-y>,
 
 " fugit
 nnoremap <leader>gs :Gstatus<CR>
@@ -199,9 +201,3 @@ let g:SuperTabCrMapping                = 0
 let g:UltiSnipsExpandTrigger           = '<tab>'
 let g:UltiSnipsJumpForwardTrigger      = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger     = '<s-tab>'
-
-
-" ----------------- vim test ---------------
-let g:test#preserve_screen = 1
-let test#strategy = "asyncrun"
-let g:asyncrun_open = 8
