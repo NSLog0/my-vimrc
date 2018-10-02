@@ -61,6 +61,11 @@ nnoremap <leader>tab <c-w><s-t>
 vnoremap <leader>o o<Esc>
 nnoremap ; :
 
+" save file
+vmap <C-s> :w<CR>
+nmap <C-s> :w<CR>
+imap <C-s> <Esc>:w<CR>i
+
 " emmet
 imap <silent> <c-@> <c-y>,
 
