@@ -32,6 +32,7 @@ Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'mattn/emmet-vim'
+Plug 'tjammer/blayu.vim'
 call plug#end()
 
 " ------------- key map setting ------------------- 
@@ -118,8 +119,9 @@ set background=light
 set noswapfile
 set ttyfast
 set lazyredraw
-" set relativenumber
-colorscheme quantum
+set relativenumber
+" colorscheme quantum
+colorscheme blayu
 syntax on
 " set backupdir=~/.vim/backup/
 " set directory=~/.vim/swap/
