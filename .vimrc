@@ -60,6 +60,7 @@ vnoremap H <s-^>
 nnoremap <leader>o o<Esc>
 nnoremap <leader>tab <c-w><s-t>
 vnoremap <leader>o o<Esc>
+vnoremap q <Esc>
 nnoremap ; :
 
 " save file
