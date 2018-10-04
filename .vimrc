@@ -34,6 +34,7 @@ Plug 'honza/vim-snippets'
 Plug 'mattn/emmet-vim'
 Plug 'tjammer/blayu.vim'
 Plug 'junegunn/gv.vim'
+Plug 'NSLog0/vim-colors-bluedrake'
 call plug#end()
 
 " ------------- key map setting ------------------- 
@@ -135,7 +136,8 @@ set ttyfast
 set lazyredraw
 set relativenumber
 " colorscheme quantum
-colorscheme blayu
+" colorscheme blayu
+colorscheme bluedrake
 syntax on
 " set backupdir=~/.vim/backup/
 " set directory=~/.vim/swap/
