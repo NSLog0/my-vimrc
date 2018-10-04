@@ -33,6 +33,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'mattn/emmet-vim'
 Plug 'tjammer/blayu.vim'
+Plug 'junegunn/gv.vim'
 call plug#end()
 
 " ------------- key map setting ------------------- 
@@ -88,6 +89,12 @@ nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
 " vim-easy-align
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
+
+" jump cursor
+
+nnoremap <leader>jtc `.
+nnoremap <leader>jtl ``
+nnoremap <leader>jti `^
 
 " ----------------------------------------------------
 
@@ -160,6 +167,8 @@ let g:ale_fixers = {
       \  'scss': ['prettier'],
       \  'ruby': ['rubocop'],
       \  'php': ['php_cs_fixer'],
+      \  'html': ['alex'],
+      \  'erb': ['erubis']
       \}
 
 let g:ale_linters = {
