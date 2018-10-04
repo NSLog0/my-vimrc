@@ -32,6 +32,8 @@ Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'mattn/emmet-vim'
+Plug 'tjammer/blayu.vim'
+Plug 'junegunn/gv.vim'
 call plug#end()
 
 " ------------- key map setting ------------------- 
@@ -59,6 +61,12 @@ nnoremap <leader>o o<Esc>
 nnoremap <leader>tab <c-w><s-t>
 vnoremap <leader>o o<Esc>
 vnoremap q <Esc>
+nnoremap ; :
+
+" save file
+vmap <C-s> :w<CR>
+nmap <C-s> :w<CR>
+imap <C-s> <Esc>:w<CR>i
 
 " emmet
 imap <silent> <c-@> <c-y>,
@@ -82,6 +90,12 @@ nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
 " vim-easy-align
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
+
+" jump cursor
+
+nnoremap <leader>jtc `.
+nnoremap <leader>jtl ``
+nnoremap <leader>jti `^
 
 " ----------------------------------------------------
 
@@ -119,8 +133,9 @@ set background=light
 set noswapfile
 set ttyfast
 set lazyredraw
-" set relativenumber
-colorscheme quantum
+set relativenumber
+" colorscheme quantum
+colorscheme blayu
 syntax on
 " set backupdir=~/.vim/backup/
 " set directory=~/.vim/swap/
@@ -153,6 +168,8 @@ let g:ale_fixers = {
       \  'scss': ['prettier'],
       \  'ruby': ['rubocop'],
       \  'php': ['php_cs_fixer'],
+      \  'html': ['alex'],
+      \  'erb': ['erubis']
       \}
 
 let g:ale_linters = {
