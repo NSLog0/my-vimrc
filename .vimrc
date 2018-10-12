@@ -34,7 +34,7 @@ Plug 'honza/vim-snippets'
 Plug 'mattn/emmet-vim'
 Plug 'tjammer/blayu.vim'
 Plug 'junegunn/gv.vim'
-Plug 'NSLog0/vim-colors-bluedrake'
+Plug 'NLKNguyen/papercolor-theme'
 call plug#end()
 
 " ------------- key map setting ------------------- 
@@ -137,7 +137,7 @@ set lazyredraw
 set relativenumber
 " colorscheme quantum
 " colorscheme blayu
-colorscheme bluedrake
+colorscheme PaperColor
 syntax on
 " set backupdir=~/.vim/backup/
 " set directory=~/.vim/swap/
@@ -146,7 +146,7 @@ syntax on
 
 " plugin setting
 " -------------- airline setting -------------------
-let g:airline_theme                           = 'quantum'
+let g:airline_theme                           = 'papercolor'
 let g:airline#extensions#tabline#enabled      = 1
 let g:airline#extensions#tabline#left_sep     = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
