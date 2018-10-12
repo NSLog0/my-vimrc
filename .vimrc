@@ -25,7 +25,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'Badacadabra/vim-archery'
 Plug 'fneu/breezy'
 Plug 'junegunn/vim-emoji'
-Plug 'tonsky/FiraCode'
 Plug 'janko-m/vim-test'
 Plug 'junegunn/vim-easy-align'
 Plug 'tyrannicaltoucan/vim-quantum'
@@ -105,6 +104,7 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 autocmd BufWritePre *.rb :%s/\s\+$//e
 autocmd BufWritePre *.py :%s/\s\+$//e
+autocmd BufWritePre *.js :%s/\s\+$//e
 
 au BufNewFile,BufRead *.py
     \ set tabstop=4 |
@@ -128,13 +128,16 @@ set hls
 set mouse=a
 set wildmenu
 set tags=tags
-set guifont=Fira\ Code:h12
 set termguicolors
 set background=light
 set noswapfile
 set ttyfast
 set lazyredraw
-set relativenumber
+set foldmethod=indent   
+set foldnestmax=10
+set nofoldenable
+set foldlevel=2
+" set relativenumber
 " colorscheme quantum
 " colorscheme blayu
 colorscheme PaperColor
@@ -151,6 +154,7 @@ let g:airline#extensions#tabline#enabled      = 1
 let g:airline#extensions#tabline#left_sep     = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline_powerline_fonts                 = 1
+let g:lightline = { 'colorscheme': 'PaperColor' }
 if !exists('g:airline_symbols')
   let g:airline_symbols                       = {}
 endif
