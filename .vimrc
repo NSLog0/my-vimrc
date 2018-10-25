@@ -44,6 +44,8 @@ map      <leader>a :Ag<CR>
 vmap     <leader>e "+y
 nnoremap <leader>sr :source ~/.vimrc<CR>
 inoremap jj <Esc>
+nnoremap n nzzzv
+nnoremap N Nzzzv
 noremap  <leader>/ :Commentary<CR>
 noremap  <leader>find :FZF<CR>
 noremap  <S-w> <C-w>
