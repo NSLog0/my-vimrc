@@ -34,6 +34,8 @@ Plug 'mattn/emmet-vim'
 Plug 'tjammer/blayu.vim'
 Plug 'junegunn/gv.vim'
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'tpope/vim-rails'
+Plug 'ervandew/supertab'
 call plug#end()
 
 " ------------- key map setting ------------------- 
@@ -135,10 +137,10 @@ set background=light
 set noswapfile
 set ttyfast
 set lazyredraw
-set foldmethod=indent   
 set foldnestmax=10
 set nofoldenable
 set foldlevel=2
+set foldmethod=syntax
 " set relativenumber
 " colorscheme quantum
 " colorscheme blayu
@@ -173,11 +175,11 @@ let g:ackprg = 'ag --vimgrep'
 let g:ale_fixers = {
       \  'javascript': ['prettier', 'eslint'],
       \  'python': ['autopep8'],
-      \  'scss': ['prettier'],
+      \  'scss': ['scss-lint'],
       \  'ruby': ['rubocop'],
       \  'php': ['php_cs_fixer'],
       \  'html': ['alex'],
-      \  'erb': ['erubis']
+      \  'erb': ['erb']
       \}
 
 let g:ale_linters = {
