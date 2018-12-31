@@ -1,10 +1,10 @@
 call plug#begin()
-Plug 'pangloss/vim-javascript'
+" Plug 'pangloss/vim-javascript'
 Plug 'vim-ruby/vim-ruby'
-Plug 'mxw/vim-jsx'
+" Plug 'mxw/vim-jsx'
 Plug 'isruslan/vim-es6'
 Plug 'cakebaker/scss-syntax.vim'
-Plug 'hail2u/vim-css3-syntax'
+" Plug 'hail2u/vim-css3-syntax'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'altercation/vim-colors-solarized'
