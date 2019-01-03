@@ -101,6 +101,9 @@ nnoremap <leader>jtc `.
 nnoremap <leader>jtl ``
 nnoremap <leader>jti `^
 
+" progamming shortcut
+nnoremap <leader>bp orequire "pry"; binding.pry<esc>
+
 " ----------------------------------------------------
 
 " ---------- setup vim startup defautl ---------------
