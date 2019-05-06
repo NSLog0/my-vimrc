@@ -1,13 +1,9 @@
 call plug#begin()
-" Plug 'pangloss/vim-javascript'
 Plug 'vim-ruby/vim-ruby'
-" Plug 'mxw/vim-jsx'
 Plug 'isruslan/vim-es6'
 Plug 'cakebaker/scss-syntax.vim'
-" Plug 'hail2u/vim-css3-syntax'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'altercation/vim-colors-solarized'
 Plug 'airblade/vim-gitgutter'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -28,14 +24,16 @@ Plug 'junegunn/vim-emoji'
 Plug 'janko-m/vim-test'
 Plug 'junegunn/vim-easy-align'
 Plug 'tyrannicaltoucan/vim-quantum'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 Plug 'mattn/emmet-vim'
 Plug 'tjammer/blayu.vim'
 Plug 'junegunn/gv.vim'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'tpope/vim-rails'
-Plug 'ervandew/supertab'
+Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript'
+Plug 'cocopon/iceberg.vim'
+Plug 'fcpg/vim-orbital'
+" Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 call plug#end()
 
 " ------------- key map setting ------------------- 
@@ -147,7 +145,9 @@ set foldmethod=syntax
 " set relativenumber
 " colorscheme quantum
 " colorscheme blayu
-colorscheme PaperColor
+" colorscheme PaperColor
+" colorscheme iceberg
+colorscheme orbital
 syntax on
 " set backupdir=~/.vim/backup/
 " set directory=~/.vim/swap/
@@ -178,28 +178,19 @@ let g:ackprg = 'ag --vimgrep'
 let g:ale_fixers = {
       \  'javascript': ['prettier', 'eslint'],
       \  'python': ['autopep8'],
-      \  'scss': ['scss-lint'],
+      \  'scss': ['stylelint'],
       \  'ruby': ['rubocop'],
       \  'php': ['php_cs_fixer'],
       \  'html': ['alex'],
       \  'erb': ['erb']
       \}
 
-let g:ale_linters = {
-\   'scss': ['scss-lint'],
-\   'sass': ['scss-lint'],
-\}
+" let g:ale_php_phpcs_use_global = 1
 
-let g:ale_php_phpcs_use_global = 1
-
-let g:ale_sign_error     = emoji#for('poop')
-let g:ale_sign_warning   = emoji#for('bulb')
-let g:ale_fix_on_save    = 0
-let g:ale_set_highlights = 1
-" -------------------------------------------------
-
-" ------------ refresh browser --------------------
-let g:RefreshRunningBrowserDefault = 'chrome'
+" let g:ale_sign_error     = emoji#for('poop')
+" let g:ale_sign_warning   = emoji#for('bulb')
+" let g:ale_fix_on_save    = 0
+" let g:ale_set_highlights = 1
 " -------------------------------------------------
 
 " ----------- indent plugin setting ---------------
@@ -216,10 +207,6 @@ let g:move_key_modifier = 'C'
 let g:gitgutter_highlight_lines       = 0
 " -------------------------------------------------
 
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsEditSplit     = "vertical"
-
-
 " ---------------- NERDTree ---------------------
 let NERDTreeMinimalUI        = 1
 let NERDTreeDirArrows        = 1
@@ -227,8 +214,30 @@ let NERDTreeAutoDeleteBuffer = 1
 
 let ruby_no_expensive = 1
 
-let g:SuperTabDefaultCompletionType    = '<C-n>'
-let g:SuperTabCrMapping                = 0
-let g:UltiSnipsExpandTrigger           = '<tab>'
-let g:UltiSnipsJumpForwardTrigger      = '<tab>'
-let g:UltiSnipsJumpBackwardTrigger     = '<s-tab>'
+" if hidden not set, TextEdit might fail.
+ " set hidden
+
+ " " Better display for messages
+ " " set cmdheight=10
+
+ " " Smaller updatetime for CursorHold & CursorHoldI
+ " set updatetime=300
+
+ " " don't give |ins-completion-menu| messages.
+ " set shortmess+=c
+
+ " " always show signcolumns
+ " set signcolumn=yes
+
+ " " Use tab for trigger completion with characters ahead and navigate.
+ " " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+ " inoremap <silent><expr> <TAB>
+ "       \ pumvisible() ? "\<C-n>" :
+ "       \ <SID>check_back_space() ? "\<TAB>" :
+ "       \ coc#refresh()
+ " inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+ " function! s:check_back_space() abort
+ "   let col = col('.') - 1
+ "   return !col || getline('.')[col - 1]  =~# '\s'
+ " endfunction
