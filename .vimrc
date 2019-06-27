@@ -225,3 +225,6 @@ autocmd FileType py let b:vcm_tab_complete = "omni"
 autocmd FileType html let b:vcm_tab_complete = "omni"
 autocmd FileType css let b:vcm_tab_complete = "omni"
 autocmd FileType scss let b:vcm_tab_complete = "omni"
+
+:set relativenumber
+:set rnu
