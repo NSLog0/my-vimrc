@@ -1,39 +1,36 @@
-call plug#begin()
+ call plug#begin()
 Plug 'vim-ruby/vim-ruby'
-Plug 'isruslan/vim-es6'
+" Plug 'isruslan/vim-es6'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
-Plug 'jelera/vim-javascript-syntax'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'w0rp/ale'
-Plug 'mkitt/browser-refresh.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'ap/vim-css-color'
 Plug 'matze/vim-move'
-Plug 'nightsense/simplifysimplify'
 Plug 'tpope/vim-fugitive'
 Plug 'Badacadabra/vim-archery'
 Plug 'fneu/breezy'
-Plug 'junegunn/vim-emoji'
 Plug 'janko-m/vim-test'
 Plug 'junegunn/vim-easy-align'
 Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'mattn/emmet-vim'
-Plug 'tjammer/blayu.vim'
 Plug 'junegunn/gv.vim'
 Plug 'NLKNguyen/papercolor-theme'
-Plug 'tpope/vim-rails'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'cocopon/iceberg.vim'
 Plug 'fcpg/vim-orbital'
-" Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+Plug 'schickele/vim-fruchtig'
+Plug 'ayu-theme/ayu-vim'
+Plug 'ajh17/VimCompletesMe'
+Plug 'rakr/vim-two-firewatch'
 call plug#end()
 
 " ------------- key map setting ------------------- 
@@ -72,6 +69,7 @@ imap <C-s> <Esc>:w<CR>i
 
 " emmet
 imap <silent> <c-@> <c-y>,
+imap <silent> <c-Space> <c-y>,
 
 " fugit
 nnoremap <leader>gs :Gstatus<CR>
@@ -134,7 +132,6 @@ set mouse=a
 set wildmenu
 set tags=tags
 set termguicolors
-set background=light
 set noswapfile
 set ttyfast
 set lazyredraw
@@ -142,12 +139,20 @@ set foldnestmax=10
 set nofoldenable
 set foldlevel=2
 set foldmethod=syntax
+set background=light
 " set relativenumber
 " colorscheme quantum
 " colorscheme blayu
 " colorscheme PaperColor
 " colorscheme iceberg
-colorscheme orbital
+" colorscheme orbital
+" colorscheme fruchtig
+colorscheme two-firewatch
+
+
+" colorscheme oceanlight
+" let ayucolor="light"
+
 syntax on
 " set backupdir=~/.vim/backup/
 " set directory=~/.vim/swap/
@@ -156,12 +161,11 @@ syntax on
 
 " plugin setting
 " -------------- airline setting -------------------
-let g:airline_theme                           = 'papercolor'
+let g:airline_theme                           = 'twofirewatch'
 let g:airline#extensions#tabline#enabled      = 1
 let g:airline#extensions#tabline#left_sep     = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline_powerline_fonts                 = 1
-let g:lightline = { 'colorscheme': 'PaperColor' }
 if !exists('g:airline_symbols')
   let g:airline_symbols                       = {}
 endif
@@ -190,14 +194,14 @@ let g:ale_fixers = {
 " let g:ale_sign_error     = emoji#for('poop')
 " let g:ale_sign_warning   = emoji#for('bulb')
 " let g:ale_fix_on_save    = 0
-" let g:ale_set_highlights = 1
+let g:ale_set_highlights = 1
 " -------------------------------------------------
 
 " ----------- indent plugin setting ---------------
-let g:indentLine_concealcursor = 'inc'
-let g:indentLine_conceallevel  = 2
-let g:indentLine_enabled       = 1
-let g:indentLine_char          = '┆'
+" let g:indentLine_concealcursor = 'inc'
+" let g:indentLine_conceallevel  = 2
+" let g:indentLine_enabled       = 1
+" let g:indentLine_char          = '┆'
 " -------------------------------------------------
 
 " ----------------- vim move ----------------------
@@ -211,33 +215,13 @@ let g:gitgutter_highlight_lines       = 0
 let NERDTreeMinimalUI        = 1
 let NERDTreeDirArrows        = 1
 let NERDTreeAutoDeleteBuffer = 1
+let NERDTreeWinSize          = 31
 
 let ruby_no_expensive = 1
 
-" if hidden not set, TextEdit might fail.
- " set hidden
-
- " " Better display for messages
- " " set cmdheight=10
-
- " " Smaller updatetime for CursorHold & CursorHoldI
- " set updatetime=300
-
- " " don't give |ins-completion-menu| messages.
- " set shortmess+=c
-
- " " always show signcolumns
- " set signcolumn=yes
-
- " " Use tab for trigger completion with characters ahead and navigate.
- " " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
- " inoremap <silent><expr> <TAB>
- "       \ pumvisible() ? "\<C-n>" :
- "       \ <SID>check_back_space() ? "\<TAB>" :
- "       \ coc#refresh()
- " inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
- " function! s:check_back_space() abort
- "   let col = col('.') - 1
- "   return !col || getline('.')[col - 1]  =~# '\s'
- " endfunction
+autocmd FileType ruby let b:vcm_tab_complete = "omni"
+autocmd FileType js let b:vcm_tab_complete = "omni"
+autocmd FileType py let b:vcm_tab_complete = "omni"
+autocmd FileType html let b:vcm_tab_complete = "omni"
+autocmd FileType css let b:vcm_tab_complete = "omni"
+autocmd FileType scss let b:vcm_tab_complete = "omni"
