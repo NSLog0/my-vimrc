@@ -1,6 +1,5 @@
- call plug#begin()
+call plug#begin()
 Plug 'vim-ruby/vim-ruby'
-" Plug 'isruslan/vim-es6'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -12,25 +11,19 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'w0rp/ale'
 Plug 'Yggdroot/indentLine'
-Plug 'ap/vim-css-color'
 Plug 'matze/vim-move'
 Plug 'tpope/vim-fugitive'
-Plug 'Badacadabra/vim-archery'
 Plug 'fneu/breezy'
 Plug 'janko-m/vim-test'
 Plug 'junegunn/vim-easy-align'
-Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'mattn/emmet-vim'
 Plug 'junegunn/gv.vim'
-Plug 'NLKNguyen/papercolor-theme'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
-Plug 'cocopon/iceberg.vim'
-Plug 'fcpg/vim-orbital'
-Plug 'schickele/vim-fruchtig'
-Plug 'ayu-theme/ayu-vim'
 Plug 'ajh17/VimCompletesMe'
-Plug 'rakr/vim-two-firewatch'
+Plug 'tpope/vim-haml'
+Plug 'brigade/scss-lint'
+Plug 'rakr/vim-one'
 call plug#end()
 
 " ------------- key map setting ------------------- 
@@ -138,20 +131,9 @@ set lazyredraw
 set foldnestmax=10
 set nofoldenable
 set foldlevel=2
-set foldmethod=syntax
-set background=light
-" set relativenumber
-" colorscheme quantum
-" colorscheme blayu
-" colorscheme PaperColor
-" colorscheme iceberg
-" colorscheme orbital
-" colorscheme fruchtig
-colorscheme two-firewatch
-
-
-" colorscheme oceanlight
-" let ayucolor="light"
+set foldmethod=indent
+set background=dark
+colorscheme one 
 
 syntax on
 " set backupdir=~/.vim/backup/
@@ -161,7 +143,7 @@ syntax on
 
 " plugin setting
 " -------------- airline setting -------------------
-let g:airline_theme                           = 'twofirewatch'
+let g:airline_theme                           = 'one'
 let g:airline#extensions#tabline#enabled      = 1
 let g:airline#extensions#tabline#left_sep     = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
@@ -219,12 +201,13 @@ let NERDTreeWinSize          = 31
 
 let ruby_no_expensive = 1
 
-autocmd FileType ruby let b:vcm_tab_complete = "omni"
+autocmd FileType rb let b:vcm_tab_complete = "omni"
 autocmd FileType js let b:vcm_tab_complete = "omni"
 autocmd FileType py let b:vcm_tab_complete = "omni"
 autocmd FileType html let b:vcm_tab_complete = "omni"
 autocmd FileType css let b:vcm_tab_complete = "omni"
 autocmd FileType scss let b:vcm_tab_complete = "omni"
+
 
 :set number relativenumber
 :set nu rnu
