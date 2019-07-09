@@ -208,6 +208,7 @@ autocmd FileType html let b:vcm_tab_complete = "omni"
 autocmd FileType css let b:vcm_tab_complete = "omni"
 autocmd FileType scss let b:vcm_tab_complete = "omni"
 
+set guifont=Hack\ Nerd\ Font:h14
 
 :set number relativenumber
 :set nu rnu
