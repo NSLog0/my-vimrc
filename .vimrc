@@ -24,6 +24,10 @@ Plug 'ajh17/VimCompletesMe'
 Plug 'tpope/vim-haml'
 Plug 'brigade/scss-lint'
 Plug 'rakr/vim-one'
+Plug 'isruslan/vim-es6'
+Plug 'ErichDonGubler/vim-sublime-monokai'
+Plug 'ryanoasis/vim-devicons'
+Plug 'othree/javascript-libraries-syntax.vim'
 call plug#end()
 
 " ------------- key map setting ------------------- 
@@ -53,7 +57,7 @@ nnoremap <leader>o o<Esc>
 nnoremap <leader>tab <c-w><s-t>
 vnoremap <leader>o o<Esc>
 vnoremap q <Esc>
-nnoremap ; :
+" nnoremap ; :
 
 " save file
 vmap <C-s> :w<CR>
@@ -134,6 +138,7 @@ set foldlevel=2
 set foldmethod=indent
 set background=dark
 colorscheme one 
+" colorscheme sublimemonokai 
 
 syntax on
 " set backupdir=~/.vim/backup/
@@ -208,7 +213,11 @@ autocmd FileType html let b:vcm_tab_complete = "omni"
 autocmd FileType css let b:vcm_tab_complete = "omni"
 autocmd FileType scss let b:vcm_tab_complete = "omni"
 
-set guifont=Hack\ Nerd\ Font:h14
+" set guifont=Hack\ Nerd\ Font:h14
+set guifont=FuraMono\ Nerd\ Font\ Mono:h14
 
 :set number relativenumber
 :set nu rnu
+
+" --------- test -------------
+" ----------------------------
