@@ -101,6 +101,15 @@ nnoremap <leader>bp orequire "pry"; binding.pry<esc>
 
 " ----------------------------------------------------
 
+" ---------- custom commands -------------------------
+
+command W w
+command Q q
+command WQ wq
+command Wq wq
+
+" ----------------------------------------------------
+
 " ---------- setup vim startup defautl ---------------
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
@@ -145,7 +154,6 @@ set nu rnu
 set nobackup
 set nowritebackup
 set updatetime=200
-
 colorscheme one 
 " colorscheme sublimemonokai 
 syntax on
@@ -241,3 +249,10 @@ function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
+autocmd FileType rb let b:vcm_tab_complete = "omni"
+autocmd FileType js let b:vcm_tab_complete = "omni"
+autocmd FileType py let b:vcm_tab_complete = "omni"
+autocmd FileType html let b:vcm_tab_complete = "omni"
+autocmd FileType css let b:vcm_tab_complete = "omni"
+autocmd FileType scss let b:vcm_tab_complete = "omni"
