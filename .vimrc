@@ -32,7 +32,7 @@ Plug 'honza/vim-snippets'
 Plug 'junegunn/vim-emoji'
 call plug#end()
 
-" ------------- key map setting ------------------- 
+" ------------- key map setting -------------------
 nnoremap <leader>d :NERDTreeToggle<CR>
 nnoremap <leader>w :w<CR>
 map      <leader>q :q<CR>
@@ -75,7 +75,7 @@ nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>gb :Gblame<CR>
 
-" vim-test 
+" vim-test
 nmap <leader>ttn :TestNearest<CR>
 nmap <leader>ttf :TestFile<CR>
 nmap <leader>tts :TestSuite<CR>
@@ -83,7 +83,7 @@ nmap <leader>tts :TestSuite<CR>
 " ale
 nnoremap <leader>fix :ALEFix<CR>
 
-" ctag 
+" ctag
 nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
 
 " vim-easy-align
@@ -154,8 +154,8 @@ set nu rnu
 set nobackup
 set nowritebackup
 set updatetime=200
-colorscheme one 
-" colorscheme sublimemonokai 
+colorscheme one
+" colorscheme sublimemonokai
 syntax on
 
 " set backupdir=~/.vim/backup/
@@ -239,6 +239,13 @@ autocmd BufReadPre *.js let b:javascript_lib_use_underscore = 1
 autocmd BufReadPre *.js let b:javascript_lib_use_chai = 1
 autocmd BufReadPre *.js let b:javascript_lib_use_jasmine = 1
 
+autocmd FileType rb let b:vcm_tab_complete = "omni"
+autocmd FileType js let b:vcm_tab_complete = "omni"
+autocmd FileType py let b:vcm_tab_complete = "omni"
+autocmd FileType html let b:vcm_tab_complete = "omni"
+autocmd FileType css let b:vcm_tab_complete = "omni"
+autocmd FileType scss let b:vcm_tab_complete = "omni"
+
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -249,10 +256,3 @@ function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-
-autocmd FileType rb let b:vcm_tab_complete = "omni"
-autocmd FileType js let b:vcm_tab_complete = "omni"
-autocmd FileType py let b:vcm_tab_complete = "omni"
-autocmd FileType html let b:vcm_tab_complete = "omni"
-autocmd FileType css let b:vcm_tab_complete = "omni"
-autocmd FileType scss let b:vcm_tab_complete = "omni"
