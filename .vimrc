@@ -30,6 +30,7 @@ Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'junegunn/vim-emoji'
+Plug 'leafgarland/typescript-vim'
 call plug#end()
 
 " ------------- key map setting -------------------
@@ -154,6 +155,7 @@ set nu rnu
 set nobackup
 set nowritebackup
 set updatetime=200
+set spell spelllang=en_us
 colorscheme one
 " colorscheme sublimemonokai
 syntax on
