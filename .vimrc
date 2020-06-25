@@ -15,15 +15,15 @@ Plug 'matze/vim-move'
 Plug 'tpope/vim-fugitive'
 Plug 'fneu/breezy'
 Plug 'janko-m/vim-test'
-Plug 'junegunn/vim-easy-align'
 Plug 'mattn/emmet-vim'
 Plug 'junegunn/gv.vim'
 Plug 'pangloss/vim-javascript'
-Plug 'rakr/vim-one'
 Plug 'junegunn/vim-emoji'
 Plug 'leafgarland/typescript-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jiangmiao/auto-pairs'
+Plug 'pgavlin/pulumi.vim'
+Plug 'kristijanhusak/vim-hybrid-material'
 call plug#end()
 
 " ------------- key map setting -------------------
@@ -54,8 +54,13 @@ nnoremap <leader>tab <c-w><s-t>
 vnoremap <leader>o o<Esc>
 vnoremap q <Esc>
 tnoremap <Esc> <C-W>N
-nnoremap dd "_dd
+" nnoremap dd "_dd
 " nnoremap ; :
+
+inoremap <C-h> <Left>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-l> <Right>
 
 " save file
 vmap <C-s> :w<CR>
@@ -63,7 +68,6 @@ nmap <C-s> :w<CR>
 imap <C-s> <Esc>:w<CR>i
 
 " emmet
-imap <silent> <c-@> <c-y>,
 imap <silent> <c-Space> <c-y>,
 
 " fugit
@@ -180,15 +184,9 @@ set foldnestmax=10
 set nofoldenable
 set foldlevel=2
 set foldmethod=indent
-set background=dark
 set guifont=FuraMono\ Nerd\ Font\ Mono:h14
 set number 
-" relativenumber
 set spell spelllang=en_us
-" set clipboard=unnamed
-set timeoutlen=1000        " speed vim up
-set ttimeoutlen=0          " https://stackoverflow.com/questions/37644682/why-is-vim-so-slow/37645334
-set ttyfast                " Rendering
 set tw=500
 " -------- coc --------
 set hidden
@@ -200,7 +198,9 @@ set shortmess+=c
 set signcolumn=yes
 " -------- coc --------
 set nowrap
-colorscheme one
+" set background=dark
+colorscheme hybrid_reverse
+" colorscheme citylights
 set regexpengine=1
 " " colorscheme sublimemonokai
 syntax on
@@ -237,7 +237,7 @@ let g:ale_fixers = {
       \  'erb': ['erb']
       \}
 
-let g:ale_sign_error     = emoji#for('collision')
+let g:ale_sign_error  = emoji#for('collision')
 " " -------------------------------------------------
 
 " ----------- indent plugin setting ---------------
@@ -277,5 +277,7 @@ let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeWinSize          = 31
 
 autocmd CursorHold * silent call CocActionAsync('highlight')
-
-let ruby_no_expensive = 1
+autocmd BufWritePre *.php %s/\s\+$//e
+autocmd BufWritePre *.js %s/\s\+$//e
+autocmd BufWritePre *.ts %s/\s\+$//e
+autocmd BufWritePre *.py %s/\s\+$//e
