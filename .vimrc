@@ -23,11 +23,21 @@ Plug 'leafgarland/typescript-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jiangmiao/auto-pairs'
 Plug 'pgavlin/pulumi.vim'
-Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'junegunn/vim-easy-align'
+Plug 'tpope/vim-cucumber'
+Plug 'junk-e/identity.vim'
+Plug 'tpope/vim-rails'
+Plug 'mhartington/oceanic-next'
 call plug#end()
 
 " ------------- key map setting -------------------
 nnoremap <leader>d :NERDTreeToggle<CR>
+
+nnoremap <Tab> <Esc>
+vnoremap <Tab> <Esc>gV
+onoremap <Tab> <Esc>
+cnoremap <leader><Tab> <C-C><Esc>
+
 nnoremap <leader>w :w<CR>
 map      <leader>q :q<CR>
 map      <leader>a :Ag<CR>
@@ -177,7 +187,6 @@ set hls
 set mouse=a
 set wildmenu
 set tags=tags
-set termguicolors
 set noswapfile
 set lazyredraw
 set foldnestmax=10
@@ -198,16 +207,19 @@ set shortmess+=c
 set signcolumn=yes
 " -------- coc --------
 set nowrap
-" set background=dark
-colorscheme hybrid_reverse
-" colorscheme citylights
-set regexpengine=1
-" " colorscheme sublimemonokai
 syntax on
+ if (has("termguicolors"))
+  set termguicolors
+ endif
+colorscheme OceanicNext
+let g:oceanic_next_terminal_bold = 1
+let g:oceanic_next_terminal_italic = 1
+set regexpengine=1
 
+let g:materialmonokai_subtle_spell=1
 " plugin setting
 " -------------- airline setting -------------------
-let g:airline_theme                           = 'luna'
+let g:airline_theme                           = 'oceanicnext'
 let g:airline#extensions#tabline#enabled      = 1
 let g:airline#extensions#tabline#left_sep     = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
@@ -265,7 +277,9 @@ let g:coc_global_extensions = [
       \ 'coc-python', 
       \ 'coc-snippets', 
       \ 'coc-html', 
-      \ 'coc-highlight'
+      \ 'coc-highlight',
+      \ 'coc-spell-checker',
+      \ 'coc-vimlsp',
       \]
 let g:coc_snippet_next = '<S-Tab>'              " Use Tab to jump to next snippet placeholder
 " -------------------------------------------------
@@ -281,3 +295,4 @@ autocmd BufWritePre *.php %s/\s\+$//e
 autocmd BufWritePre *.js %s/\s\+$//e
 autocmd BufWritePre *.ts %s/\s\+$//e
 autocmd BufWritePre *.py %s/\s\+$//e
+autocmd BufWritePre *.rb %s/\s\+$//e
