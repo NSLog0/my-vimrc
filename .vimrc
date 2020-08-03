@@ -27,7 +27,8 @@ Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-cucumber'
 Plug 'junk-e/identity.vim'
 Plug 'tpope/vim-rails'
-Plug 'mhartington/oceanic-next'
+Plug 'sheerun/vim-polyglot'
+Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
 " ------------- key map setting -------------------
@@ -207,19 +208,15 @@ set shortmess+=c
 set signcolumn=yes
 " -------- coc --------
 set nowrap
-syntax on
- if (has("termguicolors"))
-  set termguicolors
- endif
-colorscheme OceanicNext
-let g:oceanic_next_terminal_bold = 1
-let g:oceanic_next_terminal_italic = 1
+set termguicolors
+set t_Co=256
+set background=dark
 set regexpengine=1
+colorscheme nord
 
-let g:materialmonokai_subtle_spell=1
 " plugin setting
 " -------------- airline setting -------------------
-let g:airline_theme                           = 'oceanicnext'
+let g:airline_theme                           = 'nord'
 let g:airline#extensions#tabline#enabled      = 1
 let g:airline#extensions#tabline#left_sep     = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
@@ -296,3 +293,4 @@ autocmd BufWritePre *.js %s/\s\+$//e
 autocmd BufWritePre *.ts %s/\s\+$//e
 autocmd BufWritePre *.py %s/\s\+$//e
 autocmd BufWritePre *.rb %s/\s\+$//e
+autocmd BufWritePre *.json %s/\s\+$//e
