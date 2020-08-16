@@ -182,11 +182,11 @@ set mouse=a
 set wildmenu
 set tags=tags
 set noswapfile
-set lazyredraw
-set foldnestmax=10
+" set foldnestmax=10
+" set nofoldenable
+" set foldlevel=2
+" set foldmethod=indent
 set nofoldenable
-set foldlevel=2
-set foldmethod=indent
 set guifont=FuraMono\ Nerd\ Font\ Mono:h14
 set number 
 set spell spelllang=en_us
@@ -200,13 +200,19 @@ set updatetime=200
 set shortmess+=c
 set signcolumn=yes
 " -------- coc --------
+set ttyfast
+set lazyredraw
 set nowrap
 set termguicolors
 set t_Co=256
 set background=dark
 set regexpengine=1
-syntax on
+set cursorline
+set synmaxcol=128
+syntax sync minlines=256
+set re=1
 colorscheme nord
+syntax on
 
 " plugin setting
 " -------------- airline setting -------------------
@@ -277,12 +283,17 @@ let g:coc_snippet_next = '<S-Tab>'              " Use Tab to jump to next snippe
 " -------------------------------------------------
 
 " ---------------- NERDTree ---------------------
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+
 let NERDTreeMinimalUI        = 1
 let NERDTreeDirArrows        = 1
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeWinSize          = 31
 
 let g:user_emmet_leader_key='<C-Z>'
+
+let NERDTreeHighlightCursorline=0
 
 autocmd CursorHold * silent call CocActionAsync('highlight')
 autocmd BufWritePre *.php %s/\s\+$//e
