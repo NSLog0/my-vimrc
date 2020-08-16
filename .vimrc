@@ -25,7 +25,11 @@ Plug 'junegunn/vim-easy-align'
 Plug 'junk-e/identity.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'arcticicestudio/nord-vim'
+Plug 'mileszs/ack.vim'
 call plug#end()
+
+" export FZF_DEFAULT_COMMAND='rg --files --follow --hidden'
+" brew install ripgrep
 
 " ------------- key map setting -------------------
 nnoremap <leader>d :NERDTreeToggle<CR>
@@ -225,7 +229,9 @@ let g:airline_symbols.space                   = "\ua0"
 
 
 " -------- ag function setting for fzf -------------
-let g:ackprg = 'ag --vimgrep'
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 " install --> https://github.com/ggreer/the_silver_searcher
 " --------------------------------------------------
 
