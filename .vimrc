@@ -78,9 +78,6 @@ vmap <C-s> :w<CR>
 nmap <C-s> :w<CR>
 imap <C-s> <Esc>:w<CR>i
 
-" emmet
-imap <silent> <c-Space> <c-y>,
-
 " fugit
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gd :Gdiff<CR>
@@ -172,10 +169,6 @@ command Q q
 command WQ wq
 command Wq wq
 
-" ---------- setup vim startup defautl ---------------
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
-
 set encoding=utf-8 " file encode
 set laststatus=2
 set tabstop=2 " change tab width
@@ -212,6 +205,7 @@ set termguicolors
 set t_Co=256
 set background=dark
 set regexpengine=1
+syntax on
 colorscheme nord
 
 " plugin setting
@@ -245,7 +239,8 @@ let g:ale_fixers = {
       \  'html': ['alex'],
       \  'erb': ['erb']
       \}
-
+let g:ale_linter_aliases = {'tsx': ['typescriptreact', 'typescript']}
+let g:ale_disable_lsp = 1
 let g:ale_sign_error  = emoji#for('collision')
 " " -------------------------------------------------
 
@@ -287,10 +282,13 @@ let NERDTreeDirArrows        = 1
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeWinSize          = 31
 
+let g:user_emmet_leader_key='<C-Z>'
+
 autocmd CursorHold * silent call CocActionAsync('highlight')
 autocmd BufWritePre *.php %s/\s\+$//e
 autocmd BufWritePre *.js %s/\s\+$//e
 autocmd BufWritePre *.ts %s/\s\+$//e
+autocmd BufWritePre *.tsx %s/\s\+$//e
 autocmd BufWritePre *.py %s/\s\+$//e
 autocmd BufWritePre *.rb %s/\s\+$//e
 autocmd BufWritePre *.json %s/\s\+$//e
