@@ -26,6 +26,7 @@ Plug 'junk-e/identity.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'arcticicestudio/nord-vim'
 Plug 'mileszs/ack.vim'
+Plug 'tpope/vim-surround'
 call plug#end()
 
 " export FZF_DEFAULT_COMMAND='rg --files --follow --hidden'
