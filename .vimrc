@@ -1,5 +1,8 @@
 call plug#begin()
 Plug 'vim-ruby/vim-ruby'
+Plug 'leafgarland/typescript-vim'
+Plug 'pangloss/vim-javascript'
+Plug 'jparise/vim-graphql'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
@@ -270,7 +273,6 @@ let g:coc_global_extensions = [
       \ 'coc-css', 
       \ 'coc-html', 
       \ 'coc-json', 
-      \ 'coc-yank', 
       \ 'coc-eslint', 
       \ 'coc-git', 
       \ 'coc-json', 
