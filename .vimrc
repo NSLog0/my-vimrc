@@ -7,7 +7,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 Plug 'honza/vim-snippets'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
 Plug 'vim-airline/vim-airline'
@@ -30,6 +30,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'arcticicestudio/nord-vim'
 Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-surround'
+Plug 'StanAngeloff/php.vim'
 call plug#end()
 
 " export FZF_DEFAULT_COMMAND='rg --files --follow --hidden'
@@ -232,10 +233,25 @@ let g:airline_symbols.space                   = "\ua0"
 " --------------------------------------------------
 
 
+
+
+" -------- fzf -------------
+" [Buffers] Jump to the existing window if possible
+let g:fzf_buffers_jump = 1
+
+" [[B]Commits] Customize the options used by 'git log':
+let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+
+" [Tags] Command to generate tags file
+let g:fzf_tags_command = 'ctags -R'
+
+" [Commands] --expect expression for directly executing the command
+let g:fzf_commands_expect = 'alt-enter,ctrl-x'
+" --------------------------------------------------
 " -------- ag function setting for fzf -------------
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
+" if executable('ag')
+"   let g:ackprg = 'ag --vimgrep'
+" endif
 " install --> https://github.com/ggreer/the_silver_searcher
 " --------------------------------------------------
 
@@ -283,6 +299,7 @@ let g:coc_global_extensions = [
       \ 'coc-highlight',
       \ 'coc-spell-checker',
       \ 'coc-vimlsp',
+      \ 'coc-phpls',
       \]
 let g:coc_snippet_next = '<S-Tab>'              " Use Tab to jump to next snippet placeholder
 " -------------------------------------------------
@@ -308,3 +325,7 @@ autocmd BufWritePre *.tsx %s/\s\+$//e
 autocmd BufWritePre *.py %s/\s\+$//e
 autocmd BufWritePre *.rb %s/\s\+$//e
 autocmd BufWritePre *.json %s/\s\+$//e
+
+au BufEnter,BufNew *.php :set tabstop=4
+au BufEnter,BufNew *.php :set shiftwidth=4
+au BufEnter,BufNew *.php :set softtabstop=4
