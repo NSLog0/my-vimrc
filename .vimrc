@@ -256,6 +256,8 @@ let g:fzf_commands_expect = 'alt-enter,ctrl-x'
 " --------------------------------------------------
 
 " " ----------- ale syntax setting -------------------
+let g:ale_php_phpcs_executable='/usr/local/Cellar/php-cs-fixer/2.16.4/bin/php-cs-fixer'
+let g:ale_php_php_cs_fixer_executable='/usr/local/Cellar/php-cs-fixer/2.16.4/bin/php-cs-fixer'
 let g:ale_fixers = {
       \ '*': ['remove_trailing_lines', 'trim_whitespace'],
       \  'javascript': ['eslint'],
