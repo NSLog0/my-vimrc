@@ -187,10 +187,6 @@ set mouse=a
 set wildmenu
 set tags=tags
 set noswapfile
-" set foldnestmax=10
-" set nofoldenable
-" set foldlevel=2
-" set foldmethod=indent
 set nofoldenable
 set guifont=FuraMono\ Nerd\ Font\ Mono:h14
 set number 
@@ -232,9 +228,6 @@ endif
 let g:airline_symbols.space                   = "\ua0"
 " --------------------------------------------------
 
-
-
-
 " -------- fzf -------------
 " [Buffers] Jump to the existing window if possible
 let g:fzf_buffers_jump = 1
@@ -247,12 +240,6 @@ let g:fzf_tags_command = 'ctags -R'
 
 " [Commands] --expect expression for directly executing the command
 let g:fzf_commands_expect = 'alt-enter,ctrl-x'
-" --------------------------------------------------
-" -------- ag function setting for fzf -------------
-" if executable('ag')
-"   let g:ackprg = 'ag --vimgrep'
-" endif
-" install --> https://github.com/ggreer/the_silver_searcher
 " --------------------------------------------------
 
 " " ----------- ale syntax setting -------------------
