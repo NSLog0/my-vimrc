@@ -307,8 +307,8 @@ let g:coc_snippet_next = '<S-Tab>'              " Use Tab to jump to next snippe
 " -------------------------------------------------
 
 " ---------------- NERDTree ---------------------
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
 let NERDTreeMinimalUI        = 1
 let NERDTreeDirArrows        = 1
